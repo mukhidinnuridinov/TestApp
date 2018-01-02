@@ -53,6 +53,10 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.My
         return personList.get(position);
     }
 
+    public List<Person> getAllPersons(){
+        return personList;
+    }
+
     @Override
     public int getItemCount() {
         return personList.size();

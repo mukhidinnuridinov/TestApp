@@ -1,9 +1,11 @@
 package app.nmn.com.testapplication.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -62,7 +64,7 @@ public class PersonListFragment extends Fragment {
 
             @Override
             public void onLongClick(View view, int position) {
-
+                removePerson(position);
             }
         }));
 
@@ -98,6 +100,31 @@ public class PersonListFragment extends Fragment {
             }
         });
 
+    }
+
+    private void removePerson(final int position){
+
+        new AlertDialog.Builder(mainActivity)
+                .setMessage("Remove " +
+                        personListAdapter.getAllPersons().get(position).getFirstName() + " " +
+                        personListAdapter.getAllPersons().get(position).getLastName() + "?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int index = personList.indexOf(personListAdapter.getPerson(position));
+                        personList.remove(index);
+                        personListAdapter.getAllPersons().remove(position);
+                        personListAdapter.notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     private void dataInit() {
