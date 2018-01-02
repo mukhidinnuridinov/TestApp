@@ -111,6 +111,7 @@ public class PersonListFragment extends Fragment {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         int index = personList.indexOf(personListAdapter.getPerson(position));
                         personList.remove(index);
                         personListAdapter.getAllPersons().remove(position);
