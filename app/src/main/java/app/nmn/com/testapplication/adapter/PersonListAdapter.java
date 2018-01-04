@@ -42,11 +42,11 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-            holder.nameView.setText(personList.get(position).getFirstName() + " " + personList.get(position).getLastName());
+            holder.nameView.setText(personList.get(position).getFirst_name() + " " + personList.get(position).getLast_name());
             holder.genderView.setText(personList.get(position).getGender());
             holder.emailView.setText(personList.get(position).getEmail());
 
-            Glide.with(context).load(personList.get(position).getImage()).transform(new CircleTransform(context)).into(holder.imageView);
+            Glide.with(context).load(personList.get(position).getPhoto()).transform(new CircleTransform(context)).into(holder.imageView);
     }
 
     public Person getPerson(int position){

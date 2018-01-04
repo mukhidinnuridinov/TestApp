@@ -32,12 +32,13 @@ public class PersonDetailsFragment extends Fragment {
                      genderView, ipView,
                      organizationView, positionView;
     public Person person;
-    public MainActivity mainActivity;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         personDetailsFragment = (LinearLayout) inflater.inflate(R.layout.fragment_person_details, container, false);
+
+        person = (Person) getArguments().getSerializable("person");
 
         viewsInit();
 
@@ -48,10 +49,10 @@ public class PersonDetailsFragment extends Fragment {
 
     private void dataInit() {
 
-        nameView.setText(person.getFirstName() + " " + person.getLastName());
+        nameView.setText(person.getFirst_name() + " " + person.getLast_name());
         emailView.setText(person.getEmail());
         genderView.setText(person.getGender());
-        ipView.setText(person.getIpAddress());
+        ipView.setText(person.getIp_address());
         organizationView.setText(person.getEmployment().getName());
         positionView.setText(person.getEmployment().getPosition());
 
@@ -66,8 +67,9 @@ public class PersonDetailsFragment extends Fragment {
         ipView = personDetailsFragment.findViewById(R.id.ip_address_person_details_fragment);
         organizationView = personDetailsFragment.findViewById(R.id.organization_person_details_fragment);
         positionView = personDetailsFragment.findViewById(R.id.position_person_details_fragment);
-        Glide.with(mainActivity).load(person.getImage()).into(imageView);
+        Glide.with(getActivity().getApplicationContext()).load(person.getPhoto()).into(imageView);
 
+        MainActivity mainActivity = (MainActivity) getActivity();
         Toolbar toolbar = personDetailsFragment.findViewById(R.id.toolbar_person_details_fragment);
         mainActivity.setSupportActionBar(toolbar);
         mainActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);

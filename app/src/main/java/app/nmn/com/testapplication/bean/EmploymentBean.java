@@ -1,10 +1,12 @@
 package app.nmn.com.testapplication.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by User-PC on 1/2/2018.
  */
 
-public class Employment {
+public class EmploymentBean implements Serializable {
 
     private String name;
     private String position;
@@ -24,4 +26,5 @@ public class Employment {
     public void setPosition(String position) {
         this.position = position;
     }
+
 }

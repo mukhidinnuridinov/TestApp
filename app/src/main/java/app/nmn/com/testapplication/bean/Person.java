@@ -1,42 +1,44 @@
 package app.nmn.com.testapplication.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by User-PC on 1/2/2018.
  */
 
-public class Person {
+public class Person implements Serializable {
 
-    private String id;
-    private String firstName;
-    private String lastName;
+    private int id;
+    private String first_name;
+    private String last_name;
     private String email;
     private String gender;
-    private String ipAddress;
-    private String image;
-    private Employment employment;
+    private String ip_address;
+    private String photo;
+    private EmploymentBean employment;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getEmail() {
@@ -55,27 +57,27 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getIpAddress() {
-        return ipAddress;
+    public String getIp_address() {
+        return ip_address;
     }
 
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
+    public void setIp_address(String ip_address) {
+        this.ip_address = ip_address;
     }
 
-    public String getImage() {
-        return image;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public Employment getEmployment() {
+    public EmploymentBean getEmployment() {
         return employment;
     }
 
-    public void setEmployment(Employment employment) {
+    public void setEmployment(EmploymentBean employment) {
         this.employment = employment;
     }
 }
