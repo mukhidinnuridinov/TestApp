@@ -55,8 +55,6 @@ public class PersonListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i("FRAG", "1");
-
         getPersonList();
     }
 
@@ -64,8 +62,6 @@ public class PersonListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         personListFragment = (LinearLayout) inflater.inflate(R.layout.fragment_person_list, container, false);
-
-        Log.i("FRAG", "2");
 
         viewsInit();
 
